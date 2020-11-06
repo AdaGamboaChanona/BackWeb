@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -113,21 +112,25 @@ WSGI_APPLICATION = 'TrayectoriaBack.wsgi.application'
 #    }
 #}
 
-DATABASES = {
-    'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME':'d4ora1bufr64s9',
-       'USER':'ksdprdhmonpuyp',
-       'PASSWORD': 'b41517d0cdd8c163ee37a3d0b483b0b98ba271a9ed3c4a31c4fb7b94f24ec63e',
-       'HOST': 'ec2-52-203-165-126.compute-1.amazonaws.com',
-       'PORT': '5432' 
-   }
-}
+#DATABASES = {
+#   'default': {
+#      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#      'NAME':'d4ora1bufr64s9',
+#      'USER':'ksdprdhmonpuyp',
+#      'PASSWORD': 'b41517d0cdd8c163ee37a3d0b483b0b98ba271a9ed3c4a31c4fb7b94f24ec63e',
+#      'HOST': 'ec2-52-203-165-126.compute-1.amazonaws.com',
+#      'PORT': '5432' 
+#  }
+#}
 
 import dj_database_url
 from decouple import config
 
-
+DATABASES= {
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
