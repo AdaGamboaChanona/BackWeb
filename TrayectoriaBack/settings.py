@@ -25,7 +25,7 @@ SECRET_KEY = '^r=o&58_*rd24oh#ivny-k&7x(^6!ydr=o^oi+x3%4&c=l*v1$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://back-web-ids-ada-chanona.herokuapp.com/']
+ALLOWED_HOSTS = ['back-web-ids-ada-chanona.herokuapp.com']
 
 
 # Application definition
