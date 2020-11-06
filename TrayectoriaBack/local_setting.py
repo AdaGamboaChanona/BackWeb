@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -115,16 +117,15 @@ WSGI_APPLICATION = 'TrayectoriaBack.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME':'d4ora1bufr64s9',
-       'USER':'ksdprdhmonpuyp',
-       'PASSWORD': 'b41517d0cdd8c163ee37a3d0b483b0b98ba271a9ed3c4a31c4fb7b94f24ec63e',
-       'HOST': 'ec2-52-203-165-126.compute-1.amazonaws.com',
+       'NAME':'trayectoriadb',
+       'USER':'postgres',
+       'PASSWORD': '2510',
+       'HOST': '127.0.0.1',
        'PORT': '5432' 
    }
 }
 
-import dj_database_url
-from decouple import config
+
 
 
 
