@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = conf('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = conf('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['https://back-web-ids-ada-chanona.herokuapp.com/']
 
@@ -124,11 +124,11 @@ WSGI_APPLICATION = 'TrayectoriaBack.wsgi.application'
 #}
 
 import dj_database_url
-from decouple import config
+from decouple import conf
 
 DATABASES= {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
+    'default': dj_database_url.conf(
+        default=conf('DATABASE_URL')
     )
 }
 
