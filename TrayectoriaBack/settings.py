@@ -179,7 +179,7 @@ STATIC_URL = '/static/'
 
 #STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-try:
-    from back.TrayectoriaBack.local_setting import *
-except ImportError:
-    pass
+#try:
+#   from back.TrayectoriaBack.local_setting import *
+#except ImportError:
+ #   pass
