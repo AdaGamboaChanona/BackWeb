@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^r=o&58_*rd24oh#ivny-k&7x(^6!ydr=o^oi+x3%4&c=l*v1$'
+SECRET_KEY = config("SECRET_KEY") 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG",default=False, cast=bool) 
 
-ALLOWED_HOSTS = ['back-web-ids-ada-chanona.herokuapp.com']
+ALLOWED_HOSTS = [config("ALLOWED_HOSTS")]
 
 
 # Application definition
@@ -112,25 +113,25 @@ WSGI_APPLICATION = 'TrayectoriaBack.wsgi.application'
 #    }
 #}
 
-#DATABASES = {
-#   'default': {
-#      'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#      'NAME':'d4ora1bufr64s9',
-#      'USER':'ksdprdhmonpuyp',
-#      'PASSWORD': 'b41517d0cdd8c163ee37a3d0b483b0b98ba271a9ed3c4a31c4fb7b94f24ec63e',
-#      'HOST': 'ec2-52-203-165-126.compute-1.amazonaws.com',
-#      'PORT': '5432' 
-#  }
-#}
-
-import dj_database_url
-from decouple import config
-
-DATABASES= {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+DATABASES = {
+   'default': {
+     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+     'NAME':config("NAME"),
+     'USER':config("USER"),
+     'PASSWORD': config("PASSWORD"),
+     'HOST': config("HOST"),
+     'PORT': config("PORT")  
+ }
 }
+
+#import dj_database_url
+#from decouple import config
+
+#DATABASES= {
+#   'default': dj_database_url.config(
+#       default=config('DATABASE_URL')
+#  )
+#}
 
 
 
@@ -177,3 +178,8 @@ STATIC_URL = '/static/'
 #)
 
 #STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+try:
+    from TrayectoriaBack.local_setting import *
+except ImportError:
+    pass
