@@ -123,7 +123,7 @@ DATABASES = {
         'HOST': config("HOST"),
         'PORT': config("PORT") 
      
- #}
+ }
 }
 
 #import dj_database_url
