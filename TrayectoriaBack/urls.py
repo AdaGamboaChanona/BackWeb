@@ -22,22 +22,10 @@ from rest_framework import permissions
 # from rest_framework_swagger.views import get_swagger_view
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from Login.views import UserViewSet
 
 from django.conf import settings
 from django.conf.urls.static import static
-
-
-
-# Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'is_staff')
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()

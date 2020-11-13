@@ -23,3 +23,9 @@ class ProfileModelView(APIView):
         # response = ResponseJson("Error")
         return Response("Error Formato")
 
+    def get(self,request):
+        profile = ProfileModel.objects.all()
+        profile_json = ProfileModelSerializers(profile,many=True)
+        return Response(profile_json.data)
+
+
