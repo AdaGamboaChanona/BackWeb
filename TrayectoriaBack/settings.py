@@ -128,7 +128,7 @@ DATABASES = {
         'NAME':config("NAME"),
         'USER':config("USER"),
         'PASSWORD': config("PASSWORD"),
-        'HOST': "54.211.147.44",
+        'HOST': "localhost",
         'PORT': config("PORT_L") 
      
  }
