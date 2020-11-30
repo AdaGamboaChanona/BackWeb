@@ -124,10 +124,10 @@ WSGI_APPLICATION = 'TrayectoriaBack.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME':'trayectoriadb',
-       'USER':'postgres',
+       'NAME':'webdb',
+       'USER':'webuserdb',
        'PASSWORD': '2510',
-       'HOST': '127.0.0.1',
+       'HOST': 'localhost',
        'PORT': '5432' 
    }
 }

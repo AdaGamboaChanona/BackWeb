@@ -26,7 +26,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG",default=False, cast=bool) 
 
-ALLOWED_HOSTS = [config("ALLOWED_HOSTS"),'54.211.147.44']
+ALLOWED_HOSTS = [config("ALLOWED_HOSTS")]
 
 
 # Application definition
@@ -189,7 +189,7 @@ STATIC_URL = '/static/'
 
 #STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-try:
-   from back.TrayectoriaBack.local_setting import *
-except ImportError:
-   pass
+# try:
+#    from back.TrayectoriaBack.local_setting import *
+# except ImportError:
+#    pass
